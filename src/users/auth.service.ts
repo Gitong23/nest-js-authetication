@@ -45,7 +45,6 @@ export class AuthService {
 
     //password compare
     const [salt, storeHash] = user.password.split('.');
-
     const hash = (await scrypt(password, salt, 32)) as Buffer;
 
     if (storeHash !== hash.toString('hex')) {
